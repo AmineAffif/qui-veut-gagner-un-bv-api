@@ -23,5 +23,13 @@ module QuiVeutGagnerUnBvApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Set the session store to use cookies
+    config.session_store :cookie_store, key: '_qui_veut_gagner_un_bv_session'
+
+    # Enable sessions for the application
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+    
   end
 end
