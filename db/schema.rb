@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_26_201814) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_27_171003) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -37,6 +37,38 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_26_201814) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.string "text"
+    t.integer "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "games_questions", force: :cascade do |t|
+    t.integer "game_id", null: false
+    t.integer "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_games_questions_on_game_id"
+    t.index ["question_id"], name: "index_games_questions_on_question_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "text"
+    t.integer "right_answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -51,4 +83,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_26_201814) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "games", "users"
+  add_foreign_key "games_questions", "games"
+  add_foreign_key "games_questions", "questions"
 end
