@@ -9,6 +9,5 @@ Rails.application.routes.draw do
     sessions: 'admin_users/sessions'
   }
 
-  # Defines the root path route ("/")
-  # root "home#index"
+  resources :questions, only: [:index, :show, :update]
 end
