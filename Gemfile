@@ -36,11 +36,15 @@ gem "bootsnap", require: false
 gem 'sprockets-rails'
 gem 'sassc-rails'
 gem "rack-cors"
+
 gem 'activeadmin'
+gem 'select2-rails'
 gem 'arctic_admin'
+
 gem 'devise'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'uglifier', '>= 1.3.0'
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

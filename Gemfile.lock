@@ -227,6 +227,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    select2-rails (4.0.13)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -266,6 +267,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 7.0.8, >= 7.0.8.3)
   sassc-rails
+  select2-rails
   sprockets-rails
   sqlite3 (~> 1.4)
   tzinfo-data
