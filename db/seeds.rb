@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 [Question, Answer, AdminUser, User].each(&:destroy_all)
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
-User.create!(email: 'affif.amine@live.fr', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password', first_name: 'Admin', last_name: 'affif') if Rails.env.development?
+User.create!(email: 'affif.amine@live.fr', password: 'password', password_confirmation: 'password', first_name: 'Amine', last_name: 'affif') if Rails.env.development?
 
 10.times do |i|
   question = Question.create!(
