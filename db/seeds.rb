@@ -10,7 +10,7 @@
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password', first_name: 'Admin', last_name: 'affif') if Rails.env.development?
 User.create!(email: 'affif.amine@live.fr', password: 'password', password_confirmation: 'password', first_name: 'Amine', last_name: 'affif') if Rails.env.development?
 
-10.times do |i|
+30.times do |i|
   question = Question.create!(
     text: "Question #{i + 1}?",
     right_answer_id: nil

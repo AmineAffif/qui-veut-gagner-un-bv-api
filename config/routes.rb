@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'games/random_question'
   ActiveAdmin.routes(self)
   
   devise_for :users, controllers: {
@@ -10,4 +11,10 @@ Rails.application.routes.draw do
   }
 
   resources :questions, only: [:index, :show, :update]
+
+  resources :games, only: [:create] do
+    collection do
+      get 'random_game'
+    end
+  end
 end
