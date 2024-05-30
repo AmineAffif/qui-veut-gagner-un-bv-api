@@ -1,0 +1,101 @@
+question_id,question_text,answer_id,answer_text,is_correct
+1,Quel est le but principal des lunettes?,1,Améliorer la vision,True
+1,Quel est le but principal des lunettes?,2,Améliorer l'audition,False
+2,Lequel de ces matériaux est couramment utilisé pour les lentilles?,3,Polycarbonate,True
+2,Lequel de ces matériaux est couramment utilisé pour les lentilles?,4,Bois,False
+3,Que signifie la vision 20/20?,5,Acuïté visuelle normale,True
+3,Que signifie la vision 20/20?,6,Vision surhumaine,False
+4,Qu'est-ce que l'astigmatisme?,7,Un défaut de la courbure de l'œil,True
+4,Qu'est-ce que l'astigmatisme?,8,Un type de daltonisme,False
+5,Quel est le but du revêtement anti-reflet?,9,Réduire l'éblouissement,True
+5,Quel est le but du revêtement anti-reflet?,10,Rendre les lunettes plus lourdes,False
+6,Quelle partie des lunettes repose sur votre nez?,11,Les plaquettes de nez,True
+6,Quelle partie des lunettes repose sur votre nez?,12,Les branches,False
+7,Que fait la protection UV dans les lunettes de soleil?,13,Bloque les rayons ultraviolets,True
+7,Que fait la protection UV dans les lunettes de soleil?,14,Améliore la vision nocturne,False
+8,Quel est le terme commun pour la presbytie?,15,Hypermetropie liée à l'âge,True
+8,Quel est le terme commun pour la presbytie?,16,Cécité nocturne,False
+9,Qu'est-ce qu'une lentille bifocale?,17,Une lentille avec deux puissances optiques,True
+9,Qu'est-ce qu'une lentille bifocale?,18,Une lentille qui change de couleur,False
+10,Qu'est-ce que le pont des lunettes?,19,La partie qui relie les lentilles,True
+10,Qu'est-ce que le pont des lunettes?,20,La partie qui repose derrière les oreilles,False
+11,Quel est le principal avantage des lentilles polarisées?,21,Réduit l'éblouissement des surfaces réfléchissantes,True
+11,Quel est le principal avantage des lentilles polarisées?,22,Change la couleur des lentilles au soleil,False
+12,Qu'est-ce que la myopie?,23,Vision de près,True
+12,Qu'est-ce que la myopie?,24,Vision de loin,False
+13,Qu'est-ce que l'hypermétropie?,25,Vision de loin,True
+13,Qu'est-ce que l'hypermétropie?,26,Vision de près,False
+14,Lequel de ces revêtements de lentilles est un type de revêtement?,27,Anti-rayures,True
+14,Lequel de ces revêtements de lentilles est un type de revêtement?,28,Anti-taches,False
+15,Que signifie le terme 'taille de la monture'?,29,Les dimensions de la monture des lunettes,True
+15,Que signifie le terme 'taille de la monture'?,30,Le poids des lunettes,False
+16,Quelle est la fonction des lentilles photochromiques?,31,Assombrir en réponse à la lumière du soleil,True
+16,Quelle est la fonction des lentilles photochromiques?,32,Améliorer la perception des couleurs,False
+17,Quelle partie des lunettes est la branche?,33,Le bras s'étendant jusqu'à l'oreille,True
+17,Quelle partie des lunettes est la branche?,34,La lentille,False
+18,Qu'est-ce que la DP dans une ordonnance de lunettes?,35,Distance pupillaire,True
+18,Qu'est-ce que la DP dans une ordonnance de lunettes?,36,Diamètre de la pupille,False
+19,Que fait un opticien?,37,Adaptation et distribution de lunettes,True
+19,Que fait un opticien?,38,Effectue des chirurgies oculaires,False
+20,Quel est le nom commun des lentilles de contact?,39,Lentilles de contact,True
+20,Quel est le nom commun des lentilles de contact?,40,Coussinets oculaires,False
+21,Quelle partie de l'œil est corrigée par la chirurgie LASIK?,41,La cornée,True
+21,Quelle partie de l'œil est corrigée par la chirurgie LASIK?,42,L'iris,False
+22,Quel est le principal symptôme des cataractes?,43,Vision trouble,True
+22,Quel est le principal symptôme des cataractes?,44,Vision double,False
+23,Quel est le but d'une ordonnance de lentilles?,45,Spécifie la puissance des lentilles nécessaire,True
+23,Quel est le but d'une ordonnance de lentilles?,46,Spécifie le style de la monture,False
+24,Que signifie le revêtement AR?,47,Anti-réfléchissant,True
+24,Que signifie le revêtement AR?,48,Toujours rond,False
+25,Pourquoi les lentilles bloquant la lumière bleue sont-elles utilisées?,49,Réduit la fatigue oculaire due aux écrans,True
+25,Pourquoi les lentilles bloquant la lumière bleue sont-elles utilisées?,50,Améliore la vision sous l'eau,False
+26,Quelle est la forme typique des lunettes de pilote?,51,En forme de goutte,True
+26,Quelle est la forme typique des lunettes de pilote?,52,Carrée,False
+27,Qu'est-ce qu'un examen de la vue?,53,Un test pour évaluer la vision,True
+27,Qu'est-ce qu'un examen de la vue?,54,Une chirurgie pour corriger la vision,False
+28,Que sont les lentilles progressives?,55,Des lentilles avec plusieurs points focaux,True
+28,Que sont les lentilles progressives?,56,Des lentilles qui changent de couleur,False
+29,Que fait une lentille convexe?,57,Converge les rayons lumineux,True
+29,Que fait une lentille convexe?,58,Diverge les rayons lumineux,False
+30,Que fait une lentille concave?,59,Diverge les rayons lumineux,True
+30,Que fait une lentille concave?,60,Converge les rayons lumineux,False
+31,Quelle est la fonction principale de l'iris?,61,Contrôle le diamètre de la pupille,True
+31,Quelle est la fonction principale de l'iris?,62,Focus la lumière sur la rétine,False
+32,Quel est un matériau courant pour les montures?,63,Acétate,True
+32,Quel est un matériau courant pour les montures?,64,Béton,False
+33,Que signifie le terme 'centre optique'?,65,Point de la lentille avec la bonne prescription,True
+33,Que signifie le terme 'centre optique'?,66,Le centre de la monture,False
+34,Qu'est-ce qu'un revêtement anti-buée?,67,Empêche les lentilles de s'embuer,True
+34,Qu'est-ce qu'un revêtement anti-buée?,68,Rend les lentilles étanches,False
+35,Qu'est-ce qu'un monocle?,69,Une seule lentille correctrice,True
+35,Qu'est-ce qu'un monocle?,70,Un type de matériau de monture,False
+36,Quel est l'avantage des montures légères?,71,Confort accru,True
+36,Quel est l'avantage des montures légères?,72,Couleur améliorée,False
+37,Quelle est une cause courante des yeux secs?,73,Manque d'humidité,True
+37,Quelle est une cause courante des yeux secs?,74,Trop d'humidité,False
+38,Que mesure un tableau de vision?,75,Acuité visuelle,True
+38,Que mesure un tableau de vision?,76,Vision périphérique,False
+39,Quel est le terme pour la vision double?,77,Diplopie,True
+39,Quel est le terme pour la vision double?,78,Myopie,False
+40,Quelle est la fonction principale de la rétine?,79,Détecte la lumière et la couleur,True
+40,Quelle est la fonction principale de la rétine?,80,Focus la lumière,False
+41,Quel est le but des lentilles teintées?,81,Réduire la luminosité et l'éblouissement,True
+41,Quel est le but des lentilles teintées?,82,Augmenter la luminosité,False
+42,Qu'est-ce qu'une lentille sclérotique?,83,Une grande lentille de contact qui couvre la sclère,True
+42,Qu'est-ce qu'une lentille sclérotique?,84,Une petite lentille pour la vision nocturne,False
+43,Quel est un symptôme courant du glaucome?,85,Augmentation de la pression oculaire,True
+43,Quel est un symptôme courant du glaucome?,86,Diminution de la production de larmes,False
+44,Que fait un optométriste?,87,Effectue des examens de la vue et prescrit des lentilles,True
+44,Que fait un optométriste?,88,Fabrique des montures de lunettes,False
+45,Quel est un aide visuel courant pour la lecture?,89,Lunettes de lecture,True
+45,Quel est un aide visuel courant pour la lecture?,90,Loupe,False
+46,Que signifie 'indice de lentille'?,91,Épaisseur de la lentille,True
+46,Que signifie 'indice de lentille'?,92,Couleur de la lentille,False
+47,Quel est un symptôme courant des yeux secs?,93,Irritation et rougeur,True
+47,Quel est un symptôme courant des yeux secs?,94,Larmoiement excessif,False
+48,À quoi sert une lentille prismatique?,95,Correction de la vision double,True
+48,À quoi sert une lentille prismatique?,96,Amélioration du contraste des couleurs,False
+49,Quel est un usage courant des bifocaux?,97,Vision de près et de loin,True
+49,Quel est un usage courant des bifocaux?,98,Conduite de nuit,False
+50,Qu'est-ce que la dégénérescence maculaire?,99,Dommages à la partie centrale de la rétine,True
+50,Qu'est-ce que la dégénérescence maculaire?,100,Infection de la surface de l'œil,False

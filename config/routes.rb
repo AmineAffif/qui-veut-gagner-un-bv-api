@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     sessions: 'admin_users/sessions'
   }
 
-  resources :questions, only: [:index, :show, :update]
+  resources :questions, only: [:index, :show, :update, :create]
 
   resources :games, only: [:create] do
     collection do

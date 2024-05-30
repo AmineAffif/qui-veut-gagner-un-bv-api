@@ -12,6 +12,21 @@ class QuestionsController < ApplicationController
     render json: @question.to_json(include: :answers)
   end
 
+  def create
+    @question = Question.new(question_params.except(:right_answer_id))
+
+    if @question.save
+      if params[:question][:right_answer_id].present?
+        right_answer = @question.answers.find_by(text: params[:question][:answers_attributes][params[:question][:right_answer_id].to_i][:text])
+        @question.update(right_answer_id: right_answer.id) if right_answer
+      end
+      render json: @question.to_json(include: :answers), status: :created
+    else
+      render json: @question.errors, status: :unprocessable_entity
+    end
+  end
+
+
   # PATCH/PUT /questions/:id
   def update
     if @question.update(question_params)
