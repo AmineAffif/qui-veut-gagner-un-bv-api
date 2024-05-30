@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/:id
   def update
     if @question.update(question_params)
-      render json: @question
+      render json: @question.to_json(include: :answers)
     else
       render json: @question.errors, status: :unprocessable_entity
     end
