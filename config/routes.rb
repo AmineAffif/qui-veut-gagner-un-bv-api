@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :questions, only: [:index, :show, :update, :create]
 
+  resource :statistics, only: [:show, :update]
+
   resources :games, only: [:create] do
     collection do
       get 'random_game'

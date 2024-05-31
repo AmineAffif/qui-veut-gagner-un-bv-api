@@ -5,7 +5,7 @@ require 'csv'
 
 # Créer des utilisateurs de test
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password', first_name: 'Admin', last_name: 'affif') if Rails.env.development?
-User.create!(email: 'affif.amine@live.fr', password: 'password', password_confirmation: 'password', first_name: 'Amine', last_name: 'affif') if Rails.env.development?
+User.create!(email: 'affif.amine@live.fr', password: 'password', password_confirmation: 'password', username: 'amine75', first_name: 'Amine', last_name: 'affif') if Rails.env.development?
 
 # Lire le fichier CSV et forcer l'encodage UTF-8
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'merged_seed.csv'), encoding: 'UTF-8')
