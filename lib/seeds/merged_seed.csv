@@ -1,6 +1,6 @@
 question_id,question_text,answer_id,answer_text,is_correct
-1,Quel est le but principal des lunettes?,1,+10pt en charisme,True
-1,Quel est le but principal des lunettes?,2,Meilleure vue,False
+1,Quel est le but principal des lunettes?,1,Meilleure vue,True
+1,Quel est le but principal des lunettes?,2,+10pt en charisme,False
 2,Lequel de ces matériaux est couramment utilisé pour les lentilles?,3,Polycarbonate,True
 2,Lequel de ces matériaux est couramment utilisé pour les lentilles?,4,Chicken masala,False
 3,Que signifie la vision 20/20?,5,Acuïté visuelle normale,True

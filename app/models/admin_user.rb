@@ -1,7 +1,8 @@
 # app/models/admin_user.rb
 class AdminUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         authentication_keys: [:email]
 
   # Define ransackable attributes for searching
   def self.ransackable_attributes(auth_object = nil)
