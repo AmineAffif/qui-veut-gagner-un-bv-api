@@ -9,6 +9,8 @@ class Statistic < ApplicationRecord
     master: 'Master'
   }
 
+  after_save :update_rank
+
   def calculate_global_score
     self.global_score = user.games.sum(:score)
   end
@@ -16,15 +18,22 @@ class Statistic < ApplicationRecord
   def set_rank
     self.rank = case global_score
                 when 0..100
-                  'beginner'
+                  'Beginner'
                 when 101..200
-                  'intermediate'
+                  'Intermediate'
                 when 201..300
-                  'advanced'
+                  'Advanced'
                 when 301..400
-                  'expert'
+                  'Expert'
                 else
-                  'master'
+                  'Master'
                 end
+  end
+
+  private
+
+  def update_rank
+    set_rank
+    update_column(:rank, rank) if rank_changed?
   end
 end

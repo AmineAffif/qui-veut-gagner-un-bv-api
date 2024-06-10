@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'games/random_question'
   ActiveAdmin.routes(self)
-  
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   devise_for :admin_users, controllers: {
     sessions: 'admin_users/sessions'
   }
-
+  
   resources :questions, only: [:index, :show, :update, :create]
-
-  resource :statistics, only: [:show, :update]
+  
+  resources :statistics, only: [:show, :update]
 
   resources :games, only: [:create] do
     collection do

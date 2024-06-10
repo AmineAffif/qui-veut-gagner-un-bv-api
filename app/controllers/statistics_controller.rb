@@ -1,18 +1,25 @@
 class StatisticsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_statistic, only: [:show, :update]
 
-  # GET /statistics/1
+  # GET /statistics/:id
   def show
-    render json: @statistic
-  end
-
-  # PATCH/PUT /statistics/1
-  def update
-    if @statistic.update(statistic_params)
+    if @statistic.user == current_user
       render json: @statistic
     else
-      render json: @statistic.errors, status: :unprocessable_entity
+      render json: { error: "Unauthorized" }, status: :unauthorized
+    end
+  end
+
+  # PATCH/PUT /statistics/:id
+  def update
+    if @statistic.user == current_user
+      if @statistic.update(statistic_params)
+        render json: @statistic
+      else
+        render json: @statistic.errors, status: :unprocessable_entity
+      end
+    else
+      render json: { error: "Unauthorized" }, status: :unauthorized
     end
   end
 
