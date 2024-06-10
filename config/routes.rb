@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   get 'games/random_question'
   ActiveAdmin.routes(self)
 
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+  get 'current_user', to: 'users#show'
+
   devise_for :admin_users, controllers: {
     sessions: 'admin_users/sessions'
   }

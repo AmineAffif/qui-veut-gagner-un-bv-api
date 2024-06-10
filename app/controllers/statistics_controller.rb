@@ -4,7 +4,12 @@ class StatisticsController < ApplicationController
   # GET /statistics/:id
   def show
     if @statistic.user == current_user
-      render json: @statistic
+      games_count = @statistic.user.games.count
+      correct_answers_count = @statistic.user.games.sum(:score)
+      total_questions_count = games_count * 10
+      correct_answers_percentage = total_questions_count.zero? ? 0 : (correct_answers_count.to_f / total_questions_count * 100).round(2)
+
+      render json: { statistic: @statistic, games_count: games_count, correct_answers_percentage: correct_answers_percentage }
     else
       render json: { error: "Unauthorized" }, status: :unauthorized
     end
