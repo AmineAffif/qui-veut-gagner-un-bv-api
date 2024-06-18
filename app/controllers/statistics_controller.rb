@@ -3,13 +3,18 @@ class StatisticsController < ApplicationController
 
   # GET /statistics/:id
   def show
-    if @statistic.user == current_user
+    @statistic = @statistic.first
+    if @statistic.user == User.find(params[:id])
       games_count = @statistic.user.games.count
       correct_answers_count = @statistic.user.games.sum(:score)
       total_questions_count = games_count * 10
       correct_answers_percentage = total_questions_count.zero? ? 0 : (correct_answers_count.to_f / total_questions_count * 100).round(2)
 
-      render json: { statistic: @statistic, games_count: games_count, correct_answers_percentage: correct_answers_percentage }
+      render json: {
+        statistic: @statistic,
+        games_count: games_count,
+        correct_answers_percentage: correct_answers_percentage
+      }
     else
       render json: { error: "Unauthorized" }, status: :unauthorized
     end
@@ -17,7 +22,7 @@ class StatisticsController < ApplicationController
 
   # PATCH/PUT /statistics/:id
   def update
-    if @statistic.user == current_user
+    if @statistic.user == User.find(params[:id])
       if @statistic.update(statistic_params)
         render json: @statistic
       else
@@ -31,7 +36,11 @@ class StatisticsController < ApplicationController
   private
 
   def set_statistic
-    @statistic = Statistic.find(params[:id])
+    p 'params ================'
+    p params
+    p 'params ================'
+
+    @statistic = Statistic.where(user_id: params[:id])
   end
 
   def statistic_params

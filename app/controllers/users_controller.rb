@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
 
   def show
-    render json: current_user, include: :statistic
+    p 'current_user =========='
+    p current_user
+    p 'current_user =========='
+
+    user = User.find(params[:id])
+    render json: user, include: :statistic
   end
 end
