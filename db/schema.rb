@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_20_140507) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_20_145005) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -80,6 +80,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_20_140507) do
     t.index ["user_id"], name: "index_statistics_on_user_id"
   end
 
+  create_table "user_questions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "question_id", null: false
+    t.boolean "correct"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_user_questions_on_question_id"
+    t.index ["user_id"], name: "index_user_questions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -103,4 +113,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_20_140507) do
   add_foreign_key "games_questions", "games"
   add_foreign_key "games_questions", "questions"
   add_foreign_key "statistics", "users"
+  add_foreign_key "user_questions", "questions"
+  add_foreign_key "user_questions", "users"
 end

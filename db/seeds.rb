@@ -29,24 +29,3 @@ end
 
 puts "Il y a maintenant #{Question.count} questions dans la base de données."
 puts "Il y a maintenant #{Answer.count} réponses dans la base de données."
-
-
-# 30.times do |i|
-#   question = Question.create!(
-#     text: "Question #{i + 1}?",
-#     right_answer_id: nil
-#   )
-
-#   answer1 = question.answers.create!(
-#     text: "Réponse 1 pour Question #{i + 1}"
-#   )
-  
-#   answer2 = question.answers.create!(
-#     text: "Réponse 2 pour Question #{i + 1}"
-#   )
-
-#   # Définir l'une des réponses comme bonne réponse
-#   question.update!(right_answer_id: [answer1.id, answer2.id].sample)
-# end
-
-# puts "Created #{Question.count} questions with 2 answers each."
