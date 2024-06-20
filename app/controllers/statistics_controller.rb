@@ -4,7 +4,7 @@ class StatisticsController < ApplicationController
   # GET /statistics/:id
   def show
     @statistic = @statistic.first
-    if @statistic.user == User.find(params[:id])
+    if current_user
       games_count = @statistic.user.games.count
       correct_answers_count = @statistic.user.games.sum(:score)
       total_questions_count = games_count * 10
@@ -22,7 +22,7 @@ class StatisticsController < ApplicationController
 
   # PATCH/PUT /statistics/:id
   def update
-    if @statistic.user == User.find(params[:id])
+    if current_user
       if @statistic.update(statistic_params)
         render json: @statistic
       else
@@ -36,10 +36,6 @@ class StatisticsController < ApplicationController
   private
 
   def set_statistic
-    p 'params ================'
-    p params
-    p 'params ================'
-
     @statistic = Statistic.where(user_id: params[:id])
   end
 
