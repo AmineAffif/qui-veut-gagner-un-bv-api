@@ -5,8 +5,8 @@ class Statistic < ApplicationRecord
     beginner: 'Beginner',
     intermediate: 'Intermediate',
     advanced: 'Advanced',
-    expert: 'Cevi Expert',
-    master: 'BV Master'
+    cevi_expert: 'Cevi Expert',
+    bv_master: 'BV Master'
   }
 
   after_save :update_rank
@@ -28,6 +28,10 @@ class Statistic < ApplicationRecord
                 else
                   'BV Master'
                 end
+  end
+
+  def rank_value
+    self.class.ranks[rank]
   end
 
   private
