@@ -44,6 +44,7 @@ gem 'arctic_admin'
 gem 'devise'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'jwt'
 
 
 group :development, :test do
