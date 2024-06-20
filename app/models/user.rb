@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  
-  has_many :games
+  has_many :games, dependent: :destroy
   has_one :statistic, dependent: :destroy
 
   after_create :create_statistic
