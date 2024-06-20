@@ -5,8 +5,8 @@ class Statistic < ApplicationRecord
     beginner: 'Beginner',
     intermediate: 'Intermediate',
     advanced: 'Advanced',
-    expert: 'Expert',
-    master: 'Master'
+    expert: 'Cevi Expert',
+    master: 'BV Master'
   }
 
   after_save :update_rank
@@ -24,9 +24,9 @@ class Statistic < ApplicationRecord
                 when 201..500
                   'Advanced'
                 when 501..950
-                  'Expert'
+                  'Cevi Expert'
                 else
-                  'Master'
+                  'BV Master'
                 end
   end
 

@@ -25,9 +25,11 @@ class GamesController < ApplicationController
         correct_answers = params[:answers].select { |q_id, a_id| 
           Question.find(q_id).right_answer_id == a_id 
         }
+        points = calculate_points(correct_answers.keys.map(&:to_i))
         correct_answers.each do |q_id, _|
           @current_user.user_questions.create(question_id: q_id, correct: true)
         end
+        game.update(score: points)
         render json: game, status: :created
       else
         render json: game.errors, status: :unprocessable_entity
@@ -51,4 +53,23 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(:score, question_ids: [])
   end
+
+  def calculate_points(correct_question_ids)
+    points = 0
+    correct_question_ids.each_with_index do |q_id, index|
+      points += if index < 2
+                  25
+                elsif index < 8
+                  25
+                elsif index < 20
+                  25
+                elsif index < 37
+                  26.5
+                else
+                  50
+                end
+    end
+    points
+  end
 end
+
