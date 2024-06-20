@@ -16,10 +16,11 @@ Rails.application.routes.draw do
   resources :questions, only: [:index, :show, :update, :create]
   
   resources :statistics, only: [:show, :update]
-
+  
   resources :games, only: [:create] do
     collection do
       get 'random_game'
+      post 'reset_questions'
     end
   end
 end

@@ -8,7 +8,11 @@ class GamesController < ApplicationController
                           .includes(:answers)
                           .order('RANDOM()')
                           .limit(10)
-      render json: { questions: questions.as_json(include: :answers) }
+      if questions.empty?
+        render json: { questions: [] }, status: :ok
+      else
+        render json: { questions: questions.as_json(include: :answers) }, status: :ok
+      end
     else
       render json: { error: 'Unauthorized' }, status: :unauthorized
     end
@@ -18,7 +22,6 @@ class GamesController < ApplicationController
     if @current_user
       game = Game.new(game_params.merge(user: @current_user))
       if game.save
-        # Enregistrer les questions correctement répondues par l'utilisateur
         correct_answers = params[:answers].select { |q_id, a_id| 
           Question.find(q_id).right_answer_id == a_id 
         }
@@ -29,6 +32,15 @@ class GamesController < ApplicationController
       else
         render json: game.errors, status: :unprocessable_entity
       end
+    else
+      render json: { error: 'Unauthorized' }, status: :unauthorized
+    end
+  end
+
+  def reset_questions
+    if @current_user
+      @current_user.user_questions.destroy_all
+      render json: { message: 'Questions reset successfully' }, status: :ok
     else
       render json: { error: 'Unauthorized' }, status: :unauthorized
     end

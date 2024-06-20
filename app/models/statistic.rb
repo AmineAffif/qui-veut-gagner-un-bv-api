@@ -17,13 +17,13 @@ class Statistic < ApplicationRecord
 
   def set_rank
     self.rank = case global_score
-                when 0..100
+                when 0..50
                   'Beginner'
-                when 101..200
+                when 51..200
                   'Intermediate'
-                when 201..300
+                when 201..500
                   'Advanced'
-                when 301..400
+                when 501..950
                   'Expert'
                 else
                   'Master'
