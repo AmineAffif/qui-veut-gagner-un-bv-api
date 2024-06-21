@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   
   resources :questions, only: [:index, :show, :update, :create]
   
-  resources :statistics, only: [:show, :update]
+  resources :statistics, only: [:show, :update] do
+    collection do
+      get 'top_players'
+    end
+  end
   
   resources :games, only: [:create] do
     collection do
