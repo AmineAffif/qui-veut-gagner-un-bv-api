@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  get 'users/:id', to: 'users#show'
+  resources :users, only: [:show] do
+    member do
+      patch :update_avatar
+    end
+  end
 
   devise_for :admin_users, controllers: {
     sessions: 'admin_users/sessions'

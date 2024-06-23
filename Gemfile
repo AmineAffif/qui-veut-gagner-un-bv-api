@@ -46,6 +46,9 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jwt'
 
+gem 'cloudinary', '~> 1.16.0'
+gem 'dotenv-rails', groups: [:development, :test] # Pour gérer les variables d'environnement
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

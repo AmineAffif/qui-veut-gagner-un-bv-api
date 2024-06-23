@@ -25,8 +25,15 @@ class User < ApplicationRecord
   # Ajoute un attribut virtuel pour le login
   attr_writer :login
 
-  private
+  # def avatar_url
+  #   Cloudinary::Utils.cloudinary_url(avatar, width: 100, height: 100, crop: :fill) if avatar.present?
+  # end
+  def avatar_url
+    avatar if avatar.present?
+  end
 
+  private
+  
   def create_statistic
     Statistic.create(user: self)
   end

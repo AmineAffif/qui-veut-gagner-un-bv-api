@@ -45,7 +45,7 @@ class StatisticsController < ApplicationController
   # GET /statistics/top_players
   def top_players
     @top_players = Statistic.joins(:user).order(global_score: :desc).limit(10)
-    render json: @top_players.as_json(include: { user: { only: [:id, :username, :avatar_url] } })
+    render json: @top_players.as_json(include: { user: { only: [:id, :username, :avatar] } })
   end
 
   private
