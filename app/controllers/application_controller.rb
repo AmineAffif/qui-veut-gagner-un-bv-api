@@ -8,8 +8,11 @@ class ApplicationController < ActionController::Base
     header = request.headers['Authorization']
     header = header.split(' ').last if header
     decoded = JsonWebToken.decode(header)
-    @current_user = User.find(decoded[:user_id]) if decoded
-  rescue
-    render json: { error: 'Unauthorized' }, status: :unauthorized
+
+    if decoded
+      @current_user = AdminUser.find_by(id: decoded[:user_id]) || User.find_by(id: decoded[:user_id])
+    end
+
+    render json: { error: 'Unauthorized' }, status: :unauthorized unless @current_user
   end
 end

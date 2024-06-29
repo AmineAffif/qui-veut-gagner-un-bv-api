@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_request, only: [:update_avatar]
+  before_action :check_if_admin, only: [:update, :destroy]
 
   def index
     users = User.all
@@ -48,5 +48,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email)
+  end
+
+  def check_if_admin
+    unless current_user.is_a?(AdminUser)
+      render json: { error: 'Forbidden' }, status: :forbidden
+    end
   end
 end
