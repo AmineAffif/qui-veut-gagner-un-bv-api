@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  resources :users, only: [:show, :index, :update] do
+  resources :users, only: [:show, :index, :update, :destroy] do
     member do
       patch :update_avatar
     end

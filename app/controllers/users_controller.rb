@@ -24,6 +24,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find(params[:id])
+    if user.destroy
+      render json: { message: 'User deleted successfully' }, status: :ok
+    else
+      render json: { error: user.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
   def update_avatar
     @user = current_user
     if params[:avatar].present?
