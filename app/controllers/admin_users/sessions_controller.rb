@@ -4,14 +4,16 @@ class AdminUsers::SessionsController < Devise::SessionsController
   respond_to :json
 
   def create
-    self.resource = warden.authenticate!(auth_options)
-    if resource
-      sign_in(resource_name, resource)
-      render json: { admin_user: resource, is_admin: true }, status: :ok
+    admin_user = AdminUser.find_by(email: params[:admin_user][:email])
+    if admin_user&.valid_password?(params[:admin_user][:password])
+      token = JsonWebToken.encode(user_id: admin_user.id)
+      admin_user.update(authentication_token: token) # Mettre à jour le jeton dans la base de données
+      render json: { user: admin_user, authentication_token: token, is_admin: true }, status: :ok
     else
-      render json: { error: 'Invalid Email or password.' }, status: :unauthorized
+      render json: { error: 'Invalid login or password' }, status: :unauthorized
     end
   end
+
 
   def destroy
     sign_out(resource_name)

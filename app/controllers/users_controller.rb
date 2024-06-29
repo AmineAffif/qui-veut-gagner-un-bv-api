@@ -1,12 +1,26 @@
 class UsersController < ApplicationController
   # before_action :authenticate_request, only: [:update_avatar]
 
+  def index
+    users = User.all
+    render json: users, only: [:id, :email, :created_at, :updated_at]
+  end
+
   def show
     if current_user
       user = User.find(params[:id])
       render json: user, include: :statistic
     else
       render json: { error: 'Unauthorized' }, status: :unauthorized
+    end
+  end
+
+  def update
+    user = User.find(params[:id])
+    if user.update(user_params)
+      render json: user, status: :ok
+    else
+      render json: { error: user.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
@@ -19,5 +33,11 @@ class UsersController < ApplicationController
     else
       render json: { error: "No file uploaded" }, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email)
   end
 end

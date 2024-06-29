@@ -4,7 +4,7 @@ require 'csv'
 [Question, Answer, AdminUser, User].each(&:destroy_all)
 
 # Créer des utilisateurs de test
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password', first_name: 'Admin', last_name: 'affif') if Rails.env.development?
+AdminUser.create!(email: 'enima@admin.com', password: ENV['ADMIN_PASSWORD'], password_confirmation: ENV['ADMIN_PASSWORD'], first_name: 'Admin', last_name: 'affif') if Rails.env.development?
 User.create!(email: 'affif.amine@live.fr', password: 'password', password_confirmation: 'password', username: 'amine75', first_name: 'Amine', last_name: 'affif') if Rails.env.development?
 
 # Lire le fichier CSV et forcer l'encodage UTF-8
