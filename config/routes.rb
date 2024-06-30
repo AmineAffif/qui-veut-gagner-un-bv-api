@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     sessions: 'admin_users/sessions'
   }
 
+  resources :admin_users, only: [:index, :show, :update, :destroy]
+
   resources :users, only: [:show, :index, :update, :destroy] do
     member do
       patch :update_avatar
