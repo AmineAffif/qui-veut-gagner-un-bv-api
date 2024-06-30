@@ -1,6 +1,6 @@
-# frozen_string_literal: true
-
 class AdminUsers::SessionsController < Devise::SessionsController
+  skip_before_action :authenticate_request, only: [:create]
+
   respond_to :json
 
   def create
@@ -14,12 +14,16 @@ class AdminUsers::SessionsController < Devise::SessionsController
     end
   end
 
-
-  def destroy
-    sign_out(resource_name)
-    render json: {}, status: :ok
+  def destroy  
+    if @current_user.is_a?(AdminUser)
+      @current_user.update(authentication_token: nil) # Clear the token in the database
+      sign_out(@current_user)
+      render json: {}, status: :ok
+    else
+      render json: { error: 'Not signed in' }, status: :unauthorized
+    end
   end
-
+    
   protected
 
   def verify_signed_out_user
@@ -33,29 +37,4 @@ class AdminUsers::SessionsController < Devise::SessionsController
   def respond_to_on_destroy
     head :no_content
   end
-
-
-  # before_action :configure_sign_in_params, only: [:create]
-
-  # GET /resource/sign_in
-  # def new
-  #   super
-  # end
-
-  # POST /resource/sign_in
-  # def create
-  #   super
-  # end
-
-  # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
-
-  # protected
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
 end

@@ -1,6 +1,8 @@
 class Users::SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
   before_action :skip_flash, only: [:create]
+  skip_before_action :authenticate_request, only: [:create]
+
   respond_to :json
 
   # POST /resource/sign_in
@@ -14,6 +16,16 @@ class Users::SessionsController < Devise::SessionsController
       render json: { error: 'Invalid login or password' }, status: :unauthorized
     end
   end
+
+  def destroy
+    if current_user
+      current_user.update(authentication_token: nil) # Clear the token in the database
+      sign_out(current_user)
+      render json: {}, status: :ok
+    else
+      render json: { error: 'Not signed in' }, status: :unauthorized
+    end
+  end  
 
   private
 
