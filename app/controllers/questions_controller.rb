@@ -26,7 +26,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-
   # PATCH/PUT /questions/:id
   def update
     if @question.update(question_params)

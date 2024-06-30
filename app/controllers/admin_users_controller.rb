@@ -15,6 +15,16 @@ class AdminUsersController < ApplicationController
     end
   end
 
+  def create
+    @admin_user = AdminUser.new(admin_user_params)
+
+    if @admin_user.save
+      render json: @admin_user.to_json, status: :created
+    else
+      render json: @admin_user.errors, status: :unprocessable_entity
+    end
+  end
+
   def update
     admin_user = AdminUser.find(params[:id])
     if admin_user.update(admin_user_params)
@@ -36,7 +46,7 @@ class AdminUsersController < ApplicationController
   private
 
   def admin_user_params
-    params.require(:admin_user).permit(:email)
+    params.require(:admin_user).permit(:email, :password, :firstname, :lastname)
   end
 
   def check_if_admin
