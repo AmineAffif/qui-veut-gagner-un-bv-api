@@ -47,7 +47,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jwt'
 
 gem 'cloudinary', '~> 1.16.0'
-gem 'dotenv-rails', groups: [:development, :test] # Pour gérer les variables d'environnement
+gem 'dotenv-rails', groups: [:development, :test, :production] # Pour gérer les variables d'environnement
 
 
 group :development, :test do
@@ -59,4 +59,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
